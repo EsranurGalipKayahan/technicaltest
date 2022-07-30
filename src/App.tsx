@@ -1,11 +1,13 @@
 import React from 'react'
-import { ProductController } from './components/ProductController'
+import { Box } from '@mui/material'
+import { ProductController } from './components/product/ProductController'
+import { containerStyle } from './components/styles/commonStyles'
 
 function App() {
   return (
-    <div className="App">
+    <Box sx={containerStyle}>
       <ProductController />
-    </div>
+    </Box>
   )
 }
 

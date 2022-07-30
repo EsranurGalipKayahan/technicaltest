@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { ProductType } from '../apis/Product'
 
 export const useFetch = (url: string) => {
-  const [data, setData] = useState<ProductType | null>(null)
+  const [data, setData] = useState<ProductType[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [isError, setIsError] = useState<boolean>(false)
 
