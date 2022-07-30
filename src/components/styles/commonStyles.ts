@@ -5,9 +5,9 @@ export const flexCenter = {
 export const sectionStyle = {
   ...flexCenter,
   width: '80%',
-  border: '1px solid orange',
 }
 export const containerStyle = {
+  mt: 2,
   display: 'flex',
   justifyContent: 'center',
 }
@@ -17,6 +17,8 @@ export const modalStyle = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
+  maxHeight: '90vh',
+  overflow: 'auto',
   bgcolor: 'background.paper',
   boxShadow: 24,
   p: 4,

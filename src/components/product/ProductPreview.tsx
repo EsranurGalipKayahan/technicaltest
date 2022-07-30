@@ -48,7 +48,11 @@ export const ProductPreview = ({
             <Typography gutterBottom variant="h5" component="div">
               {product.name}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography
+              variant="body2"
+              color={'text.secondary'}
+              align={'justify'}
+            >
               {product.description}
             </Typography>
             <Rating
@@ -59,10 +63,10 @@ export const ProductPreview = ({
             />
           </CardContent>
           <CardActions>
-            <IconButton size="small">
-              <FavoriteIcon />
+            <IconButton size={'small'}>
+              <FavoriteIcon color={'secondary'} />
             </IconButton>
-            <IconButton size="small">
+            <IconButton size={'small'} color={'primary'}>
               <ShareIcon />
             </IconButton>
           </CardActions>

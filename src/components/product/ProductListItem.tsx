@@ -39,7 +39,7 @@ export const ProductListItem = ({ product }: IProductListItemProps) => {
           direction={'row'}
           alignItems={'center'}
           justifyContent={'space-between'}
-          sx={{ border: '1px solid lightgrey', borderRadius: 5 }}
+          sx={{ border: '1px solid lightgrey', boxShadow: 6, borderRadius: 5 }}
         >
           <Stack direction={'row'} alignItems={'center'}>
             <img
