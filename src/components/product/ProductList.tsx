@@ -20,7 +20,7 @@ export const ProductList = () => {
   const { products } = useContext(ProductContext)
 
   return (
-    <Box sx={{ width: '100%', border: '1px solid red' }}>
+    <Box sx={{ width: '100%' }}>
       {products.map(product => (
         <ProductListItem key={product.id} product={product} />
       ))}
