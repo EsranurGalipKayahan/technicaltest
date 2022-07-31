@@ -1,6 +1,11 @@
 import { createContext, useEffect, useState } from 'react'
+import { AppBar, Typography, Box } from '@mui/material'
 import LeakRemoveIcon from '@mui/icons-material/LeakRemove'
-import { NUMBER_OF_ITEMS, PRODUCT_URL } from '../../data/constants'
+import {
+  BACKGROUND_IMG,
+  NUMBER_OF_ITEMS,
+  PRODUCT_URL,
+} from '../../data/constants'
 import { useFetch } from '../../hook/useFetch'
 import { Error } from '../common/Error'
 import { SectionBox } from '../common/SectionBox'
@@ -9,6 +14,7 @@ import { FETCH_ERROR, NO_DATA } from '../../data/messages'
 import { ProductType } from '../../apis/Product'
 import { isArrayEmpty } from '../../utils/array-utils'
 import { ListSkeleton } from '../common/ListSkeleton'
+import { calculateListHeight, flexCenter } from '../styles/commonStyles'
 
 interface IProductContextProps {
   products: ProductType[]
@@ -32,32 +38,41 @@ export const ProductController = () => {
     setProducts(products.filter(f => f.id !== id))
   }
 
-  if (isLoading)
-    return (
-      <SectionBox>
-        <ListSkeleton />
-      </SectionBox>
-    )
-
-  if (isError)
-    return (
-      <SectionBox>
-        <Error message={FETCH_ERROR} />
-      </SectionBox>
-    )
-
-  console.log(data)
   return (
     <ProductContext.Provider value={{ products, handleDelete }}>
-      <SectionBox>
-        {!isArrayEmpty(products) ? (
-          <ProductList />
-        ) : (
-          <Error
-            icon={<LeakRemoveIcon fontSize={'large'} color={'secondary'} />}
-            message={NO_DATA}
-          />
-        )}
+      <SectionBox style={{ backgroundImage: `url(${BACKGROUND_IMG})` }}>
+        <Box
+          height={calculateListHeight}
+          sx={{ overflow: 'auto', minWidth: { xs: 280, md: 550 } }}
+        >
+          <AppBar
+            position={'sticky'}
+            color={'secondary'}
+            sx={{ height: 45, ...flexCenter }}
+          >
+            <Typography
+              color={'whitesmoke'}
+              fontFamily={'serif'}
+              fontStyle={'italic'}
+              fontWeight={'bold'}
+              fontSize={20}
+            >
+              Top 15 Products
+            </Typography>
+          </AppBar>
+          {isLoading ? (
+            <ListSkeleton />
+          ) : isError ? (
+            <Error message={FETCH_ERROR} />
+          ) : isArrayEmpty(products) ? (
+            <Error
+              icon={<LeakRemoveIcon fontSize={'large'} color={'secondary'} />}
+              message={NO_DATA}
+            />
+          ) : (
+            <ProductList />
+          )}
+        </Box>
       </SectionBox>
     </ProductContext.Provider>
   )

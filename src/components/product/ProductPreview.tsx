@@ -33,7 +33,7 @@ export const ProductPreview = ({
         <CardMedia
           component={'img'}
           height={'140'}
-          image={product.image_link || NO_PREVIEW}
+          image={product.api_featured_image || NO_PREVIEW}
           onError={addDefaultImgSrc}
           style={{ objectFit: 'contain' }}
           alt={product.name}

@@ -1,61 +1,42 @@
 import { Link } from 'react-router-dom'
-import { Box, Typography, Button, Stack } from '@mui/material'
-import { HERO_IMG } from '../../data/constants'
-import { fitImageToBackgroundStyle } from '../styles/commonStyles'
-
-const heroText = (
-  <svg viewBox="0 0 300 90" xmlns="http://www.w3.org/2000/svg">
-    <text x="20" y="35" style={{ font: 'italic 23px sans-serif' }}>
-      Discover
-    </text>
-    <text x="114" y="35" style={{ font: ' bold 35px sans-serif' }}>
-      trends
-    </text>
-    <text x="55" y="75" style={{ font: 'italic 15px sans-serif' }}>
-      of
-    </text>
-    <text
-      x="75"
-      y="75"
-      style={{ font: 'italic 40px serif', fill: 'darksalmon ' }}
-    >
-      Sara Beauty!
-    </text>
-  </svg>
-)
+import { Button, Stack } from '@mui/material'
+import { HERO_IMG, HERO_TEXT } from '../../data/constants'
+import { flexCenter } from '../styles/commonStyles'
+import { SectionBox } from '../common/SectionBox'
 
 export const Home = () => {
   return (
-    <Box
-      sx={{
+    <SectionBox
+      style={{
         backgroundImage: `url(${HERO_IMG})`,
-        ...fitImageToBackgroundStyle,
+        position: 'relative',
       }}
     >
-      <Stack sx={{ pl: { xs: 15 }, pt: { xs: 15 } }} display={'flex'}>
-        <Box sx={{ marginLeft: { xs: 10, md: 5 } }}>{heroText}</Box>
-        <Typography
-          variant={'h6'}
-          fontFamily={'serif'}
-          fontStyle={'italic'}
-          align={'center'}
-          sx={{
-            ml: { xs: 25, md: 45 },
-            mr: 2,
-            fontSize: 15,
-          }}
-        >
-          "Get chance to have one"
-        </Typography>
+      <Stack
+        sx={{
+          ...flexCenter,
+          position: 'absolute',
+          top: { xs: '15%', sm: '10%' },
+          right: { xs: '1%', md: '3%' },
+          width: { xs: 300, sm: 400, md: 500 },
+        }}
+      >
+        <div className={'svg-container'}>
+          <object
+            type={'image/svg+xml'}
+            data={HERO_TEXT}
+            width={'100%'}
+            height={'100%'}
+            className={'svg-content'}
+          ></object>
+        </div>
+
         <Link to={'/products'}>
-          <Button
-            variant={'outlined'}
-            sx={{ mt: { xs: 2 }, ml: { xs: '60%', md: '40%' } }}
-          >
+          <Button variant={'outlined'} sx={{ mt: { xs: 2 } }}>
             Start
           </Button>
         </Link>
       </Stack>
-    </Box>
+    </SectionBox>
   )
 }

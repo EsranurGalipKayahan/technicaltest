@@ -7,7 +7,7 @@ export const ProductList = () => {
   const { products } = useContext(ProductContext)
 
   return (
-    <Box height={439} sx={{ overflow: 'auto' }}>
+    <Box sx={{ overflow: 'auto' }}>
       {products.map(product => (
         <ProductListItem key={product.id} product={product} />
       ))}
