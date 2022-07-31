@@ -5,6 +5,7 @@ export const flexCenter = {
 export const sectionStyle = {
   ...flexCenter,
   width: '80%',
+  height: 'calc(100vh - 75px)',
 }
 export const containerStyle = {
   mt: 2,
@@ -22,4 +23,18 @@ export const modalStyle = {
   bgcolor: 'background.paper',
   boxShadow: 24,
   p: 4,
+}
+export const listSkeletonContainerStyle = { width: 550, height: 439 }
+export const fitImageToBackgroundStyle = {
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  height: 'calc(100vh - 75px)',
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'flex-end',
+}
+export const sectionChildrenStyle = {
+  alignSelf: 'center',
+  mr: { xs: 1, md: 5 },
 }

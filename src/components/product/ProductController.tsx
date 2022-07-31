@@ -1,20 +1,14 @@
-import React, {
-  createContext,
-  SyntheticEvent,
-  useEffect,
-  useState,
-} from 'react'
-import { Box } from '@mui/material'
-import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt'
+import { createContext, useEffect, useState } from 'react'
+import LeakRemoveIcon from '@mui/icons-material/LeakRemove'
 import { NUMBER_OF_ITEMS, PRODUCT_URL } from '../../data/constants'
 import { useFetch } from '../../hook/useFetch'
 import { Error } from '../common/Error'
-import { Loading } from '../common/Loading'
 import { SectionBox } from '../common/SectionBox'
 import { ProductList } from './ProductList'
 import { FETCH_ERROR, NO_DATA } from '../../data/messages'
 import { ProductType } from '../../apis/Product'
 import { isArrayEmpty } from '../../utils/array-utils'
+import { ListSkeleton } from '../common/ListSkeleton'
 
 interface IProductContextProps {
   products: ProductType[]
@@ -31,16 +25,26 @@ export const ProductController = () => {
   }, [])
 
   useEffect(() => {
-    if (products.length === 0) setProducts([...data.slice(0, NUMBER_OF_ITEMS)])
+    if (isArrayEmpty(products)) setProducts([...data.slice(0, NUMBER_OF_ITEMS)])
   }, [data])
 
   const handleDelete = (id: number) => {
     setProducts(products.filter(f => f.id !== id))
   }
 
-  if (isLoading) return <Loading />
+  if (isLoading)
+    return (
+      <SectionBox>
+        <ListSkeleton />
+      </SectionBox>
+    )
 
-  if (isError) return <Error message={FETCH_ERROR} />
+  if (isError)
+    return (
+      <SectionBox>
+        <Error message={FETCH_ERROR} />
+      </SectionBox>
+    )
 
   console.log(data)
   return (
@@ -50,7 +54,7 @@ export const ProductController = () => {
           <ProductList />
         ) : (
           <Error
-            icon={<ThumbDownAltIcon fontSize={'large'} color={'primary'} />}
+            icon={<LeakRemoveIcon fontSize={'large'} color={'secondary'} />}
             message={NO_DATA}
           />
         )}

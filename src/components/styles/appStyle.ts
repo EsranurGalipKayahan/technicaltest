@@ -1,4 +1,4 @@
-import { lightBlue, grey, red, teal } from '@mui/material/colors'
+import { lightBlue, grey, teal, deepOrange } from '@mui/material/colors'
 
 export const APP_STYLE = {
   palette: {
@@ -6,7 +6,7 @@ export const APP_STYLE = {
       main: lightBlue[500],
     },
     secondary: {
-      main: red[100],
+      main: deepOrange[200],
     },
     default: grey[500],
     success: {

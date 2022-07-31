@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Modal,
   Card,
@@ -11,6 +10,7 @@ import {
 } from '@mui/material'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import ShareIcon from '@mui/icons-material/Share'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import { modalStyle } from '../styles/commonStyles'
 import { ProductType } from '../../apis/Product'
 import { addDefaultImgSrc } from '../../utils/common-utils'
@@ -28,50 +28,46 @@ export const ProductPreview = ({
   product,
 }: IProductPreviewProps) => {
   return (
-    <div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Card sx={modalStyle}>
-          <CardMedia
-            component="img"
-            height="140"
-            image={product.image_link || NO_PREVIEW}
-            onError={addDefaultImgSrc}
-            style={{ objectFit: 'contain' }}
-            alt="green iguana"
+    <Modal open={open} onClose={handleClose}>
+      <Card sx={modalStyle}>
+        <CardMedia
+          component={'img'}
+          height={'140'}
+          image={product.image_link || NO_PREVIEW}
+          onError={addDefaultImgSrc}
+          style={{ objectFit: 'contain' }}
+          alt={product.name}
+        />
+        <CardContent>
+          <Typography gutterBottom variant={'h5'}>
+            {product.name}
+          </Typography>
+          <Typography
+            variant={'body2'}
+            color={'text.secondary'}
+            align={'justify'}
+          >
+            {product.description}
+          </Typography>
+          <Rating
+            name="read-only"
+            value={product.rating}
+            readOnly
+            sx={{ paddingTop: 1 }}
           />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {product.name}
-            </Typography>
-            <Typography
-              variant="body2"
-              color={'text.secondary'}
-              align={'justify'}
-            >
-              {product.description}
-            </Typography>
-            <Rating
-              name="read-only"
-              value={product.rating}
-              readOnly
-              sx={{ paddingTop: 1 }}
-            />
-          </CardContent>
-          <CardActions>
-            <IconButton size={'small'}>
-              <FavoriteIcon color={'secondary'} />
-            </IconButton>
-            <IconButton size={'small'} color={'primary'}>
-              <ShareIcon />
-            </IconButton>
-          </CardActions>
-        </Card>
-      </Modal>
-    </div>
+        </CardContent>
+        <CardActions>
+          <IconButton size={'small'}>
+            <FavoriteIcon color={'secondary'} />
+          </IconButton>
+          <IconButton size={'small'} color={'primary'}>
+            <ShareIcon />
+          </IconButton>
+          <IconButton style={{ marginLeft: 'auto' }}>
+            <ShoppingCartIcon color={'success'} />
+          </IconButton>
+        </CardActions>
+      </Card>
+    </Modal>
   )
 }
