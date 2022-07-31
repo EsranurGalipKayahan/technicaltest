@@ -30,10 +30,11 @@ export const Home = () => {
       sx={{
         backgroundImage: `url(${HERO_IMG})`,
         ...fitImageToBackgroundStyle,
+        position: 'relative',
       }}
     >
-      <Stack sx={{ pl: { xs: 15 }, pt: { xs: 15 } }} display={'flex'}>
-        <Box sx={{ marginLeft: { xs: 10, md: 5 } }}>{heroText}</Box>
+      <Stack sx={{ position: 'absolute', top: '20%' }} display={'flex'}>
+        <Box sx={{}}>{heroText}</Box>
         <Typography
           variant={'h6'}
           fontFamily={'serif'}

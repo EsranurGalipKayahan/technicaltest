@@ -21,8 +21,6 @@ export const ProductListItem = ({ product }: IProductListItemProps) => {
   const { handleDelete } = useContext(ProductContext)
   const [openModal, setOpenModal] = useState<boolean>(false)
 
-  console.log('product img :', product.name, product.image_link)
-
   return (
     <>
       <ButtonBase
@@ -42,10 +40,11 @@ export const ProductListItem = ({ product }: IProductListItemProps) => {
           sx={{ boxShadow: 6, borderRadius: 5 }}
         >
           <Stack direction={'row'} alignItems={'center'}>
-            {/*TODO : There are problem in some image_links, fix that*/}
             <img
-              src={`${product.image_link}` || './images/nopreview.jpg'}
-              srcSet={`${product.image_link}` || './images/nopreview.jpg'}
+              src={`${product.api_featured_image}` || './images/nopreview.jpg'}
+              srcSet={
+                `${product.api_featured_image}}` || './images/nopreview.jpg'
+              }
               onError={addDefaultImgSrc}
               title={product.name}
               alt={product.name}

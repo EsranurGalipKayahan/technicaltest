@@ -1,5 +1,4 @@
-import React from 'react'
-import { AppBar, Toolbar, Stack, Typography, Button } from '@mui/material'
+import { AppBar, Toolbar, Stack } from '@mui/material'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import { LOGO } from '../../data/constants'
 import { Link } from 'react-router-dom'
