@@ -38,9 +38,3 @@ When all the items are deleted, the informative text is being displayed
 ### `npm run pre-commit`
 
 Before commit, run this command to format codes
-
-## Learn More
-
-Home Page
-
-
