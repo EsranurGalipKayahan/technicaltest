@@ -1,7 +1,8 @@
 # Sara Beauty App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and template Typescript.\
-The demonstration is [here](https://youtu.be/baAeAhEtlWk)
+The demonstration video is [here](https://youtu.be/baAeAhEtlWk)
+The live wep app is [here](https://main--candid-tapioca-d44b59.netlify.app/)
 
 ## Available Scripts
 
