@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
 import { Box, Typography, Button, Stack } from '@mui/material'
 import { HERO_IMG } from '../../data/constants'
-import { fitImageToBackgroundStyle } from '../styles/commonStyles'
+import {
+  fitImageToBackgroundStyle,
+  putChildAtProperPosition,
+} from '../styles/commonStyles'
 
 const heroText = (
   <svg viewBox="0 0 300 90" xmlns="http://www.w3.org/2000/svg">
@@ -30,6 +33,7 @@ export const Home = () => {
       sx={{
         backgroundImage: `url(${HERO_IMG})`,
         ...fitImageToBackgroundStyle,
+        ...putChildAtProperPosition,
         position: 'relative',
       }}
     >

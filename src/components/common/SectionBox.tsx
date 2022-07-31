@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import { Box } from '@mui/material'
 import {
   fitImageToBackgroundStyle,
+  putChildAtProperPosition,
   sectionChildrenStyle,
 } from '../styles/commonStyles'
 import { BACKGROUND_IMG } from '../../data/constants'
@@ -16,6 +17,7 @@ export const SectionBox = ({ children }: ISectionBoxProps) => {
       sx={{
         backgroundImage: `url(${BACKGROUND_IMG})`,
         ...fitImageToBackgroundStyle,
+        ...putChildAtProperPosition,
       }}
     >
       <Box sx={sectionChildrenStyle}>{children}</Box>

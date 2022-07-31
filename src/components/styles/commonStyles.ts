@@ -6,6 +6,7 @@ export const sectionStyle = {
   ...flexCenter,
   width: '80%',
   height: 'calc(100vh - 75px)',
+  mihHeight: 439,
 }
 export const containerStyle = {
   mt: 2,
@@ -31,10 +32,13 @@ export const fitImageToBackgroundStyle = {
   backgroundSize: 'cover',
   height: 'calc(100vh - 75px)',
   width: '100%',
-  display: 'flex',
-  justifyContent: 'flex-end',
 }
 export const sectionChildrenStyle = {
   alignSelf: 'center',
   mr: { xs: 1, md: 5 },
+}
+
+export const putChildAtProperPosition = {
+  display: 'flex',
+  justifyContent: { xs: 'center', md: 'flex-end' },
 }
