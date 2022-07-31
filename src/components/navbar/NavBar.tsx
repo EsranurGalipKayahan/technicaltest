@@ -5,17 +5,18 @@ import { LOGO } from '../../data/constants'
 
 export const NavBar = () => {
   return (
-    <AppBar position={'sticky'} color={'default'}>
+    <AppBar position={'sticky'} color={'default'} sx={{ height: '75px' }}>
       <Toolbar
         component={Stack}
         justifyContent={'space-between'}
+        alignItems={'center'}
         direction={'row'}
       >
         <img
           src={LOGO}
           style={{ marginRight: 12, height: '75px', objectFit: 'contain' }}
         />
-        <AccountCircleIcon fontSize={'large'} color={'primary'} />
+        <AccountCircleIcon fontSize={'large'} color={'secondary'} />
       </Toolbar>
     </AppBar>
   )

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import {
   Divider,
   Stack,
@@ -39,9 +39,10 @@ export const ProductListItem = ({ product }: IProductListItemProps) => {
           direction={'row'}
           alignItems={'center'}
           justifyContent={'space-between'}
-          sx={{ border: '1px solid lightgrey', boxShadow: 6, borderRadius: 5 }}
+          sx={{ boxShadow: 6, borderRadius: 5 }}
         >
           <Stack direction={'row'} alignItems={'center'}>
+            {/*TODO : There are problem in some image_links, fix that*/}
             <img
               src={`${product.image_link}` || './images/nopreview.jpg'}
               srcSet={`${product.image_link}` || './images/nopreview.jpg'}
@@ -50,12 +51,11 @@ export const ProductListItem = ({ product }: IProductListItemProps) => {
               alt={product.name}
               style={{ height: 75, width: 75, objectFit: 'cover' }}
             />
-
             <Typography
               align={'left'}
               fontStyle={'italic'}
               pl={2}
-              sx={{ display: { xs: 'none', md: 'block' } }}
+              sx={{ display: { xs: 'none', sm: 'block' } }}
             >
               {capitalize(product.name)}
             </Typography>

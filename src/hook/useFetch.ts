@@ -11,7 +11,6 @@ export const useFetch = (url: string) => {
       setIsLoading(true)
       const response = await fetch(url)
       const resData = await response.json()
-      console.log('res:', resData)
       setData(resData)
       setIsError(false)
     } catch (err) {
