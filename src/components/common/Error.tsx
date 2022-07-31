@@ -11,8 +11,8 @@ interface IErrorProps {
 
 export const Error = ({ message, icon }: IErrorProps) => {
   return (
-    <Box sx={flexCenter}>
-      <Stack justifyContent={'center'} alignItems={'center'}>
+    <Box>
+      <Stack sx={{ pt: 2, ...flexCenter }}>
         {icon || <ErrorOutlineIcon fontSize={'large'} color={'primary'} />}
         <Typography fontStyle={'italic'} color={'text.secondary'}>
           {message || DEFAULT_ERROR_MESSAGE}

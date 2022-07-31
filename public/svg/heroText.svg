@@ -1,0 +1,18 @@
+ <svg viewBox="0 0 300 1" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="0" style= "font: italic 23px sans-serif" >
+        Discover
+      </text>
+      <text x="100" y="0" style="font: bold 35px sans-serif" >
+        trends
+      </text>
+      <text x="25" y="35" style="font: italic 15px sans-serif">
+        of
+      </text>
+      <text
+        x="45"
+        y="35"
+        style="font: italic 40px serif; fill: darksalmon " 
+      >
+        Sara Beauty!
+      </text>
+    </svg>

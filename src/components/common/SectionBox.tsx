@@ -5,17 +5,17 @@ import {
   putChildAtProperPosition,
   sectionChildrenStyle,
 } from '../styles/commonStyles'
-import { BACKGROUND_IMG } from '../../data/constants'
 
 interface ISectionBoxProps {
   children: ReactNode | ReactNode[]
+  style?: object
 }
 
-export const SectionBox = ({ children }: ISectionBoxProps) => {
+export const SectionBox = ({ children, style }: ISectionBoxProps) => {
   return (
     <Box
       sx={{
-        backgroundImage: `url(${BACKGROUND_IMG})`,
+        ...style,
         ...fitImageToBackgroundStyle,
         ...putChildAtProperPosition,
       }}

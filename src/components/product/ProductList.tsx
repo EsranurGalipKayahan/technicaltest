@@ -1,13 +1,14 @@
 import { useContext } from 'react'
-import { Box } from '@mui/material'
+import { AppBar, Box, Typography } from '@mui/material'
 import { ProductListItem } from './ProductListItem'
 import { ProductContext } from './ProductController'
+import { flexCenter } from '../styles/commonStyles'
 
 export const ProductList = () => {
   const { products } = useContext(ProductContext)
 
   return (
-    <Box height={439} sx={{ overflow: 'auto' }}>
+    <Box sx={{ overflow: 'auto' }}>
       {products.map(product => (
         <ProductListItem key={product.id} product={product} />
       ))}
